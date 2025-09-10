@@ -1,0 +1,58 @@
+{% extends'base.html' %}
+{% block title %}products {% endblock %}
+
+{% block content %}
+
+
+
+
+<div>
+    <form action="/add_products" method="post">
+        <form>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Product Name</label>
+                <input type="text" name="product_name" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Buying Price</label>
+                <input type="number" name="buying_price" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Selling Price</label>
+                <input type="number" name="selling_price" class="form-control" id="exampleInputPassword1">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </form>
+</div>
+
+<div>
+    <p>These are our products</p>
+</div>
+<div class="table">
+    <table class="table">
+        <table id="example" class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Product ID</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Buying Price</th>
+                    <th scope="col">Selling Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <th>{{product[0]}}</th>
+                    <td>{{product[1]}}</td>
+                    <td>{{product[2]}}</td>
+                    <td>{{product[3]}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
+
+{% endblock %}
