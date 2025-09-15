@@ -2,9 +2,19 @@
 {% block title %} Login Page {% endblock %}
 {% block content %}
 
-<div>
+<div class="container mt-5 p-4 w-50 bg-secondary">
     <h1>Welcome to the Login Page</h1>
-    <p>This is the content of the Login page.</p>
+    <p>Fill in the required details</p>
+    <form action="">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" placeholder="Email" required aria-label="Email">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" placeholder="Password" required aria-label="Password"> <br>
+        <a href=""> <button type="button" class="btn btn-primary bg-black border-black" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
+                Login
+            </button> </a>
+    </form>
 </div>
 
 {% endblock %}

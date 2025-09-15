@@ -2,9 +2,39 @@
 {% block title %} Register Page {% endblock %}
 {% block content %}
 
-<div>
-    <h1>Welcome to the Register Page</h1>
-    <p>This is the content of the Register page.</p>
+<div class="container mt-5 p-4 w-50 bg-secondary ">
+    <form action="">
+        <h1>Welcome to the Register Page</h1>
+        <p class="fw-bold">Create an Account</p>
+        <fieldset>
+            <legend>
+                <div class="row g-3">
+                    <div class="col">
+                        <label for="first name">First Name:</label>
+                        <input type="text" class="form-control" placeholder="First name" required aria-label="First name">
+                    </div>
+                    <div class="col">
+                        <label for="last name">Last Name:</label>
+                        <input type="text" class="form-control" placeholder="Last name" required aria-label="Last name">
+                    </div>
+                    <div class="row g-3">
+                        <div class="col">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" placeholder="Email" required aria-label="Email">
+                        </div>
+                        <div class="col">
+                            <Label for="password">Password:</Label>
+                            <input type="password" class="form-control" placeholder="Password" required aria-label="Password">
+                        </div>
+                        <a href=""> <button type="button" class="btn btn-primary bg-black border-black"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Submit Form
+                            </button> </a>
+                    </div>
+                </div>
+            </legend>
+        </fieldset>
+    </form>
 </div>
 
 {% endblock %}

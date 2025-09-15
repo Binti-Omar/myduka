@@ -1,5 +1,5 @@
 from flask import Flask ,render_template,request,redirect,url_for
-from database import display_products,display_sales,insert_product
+from database import display_products,display_sales,insert_product,insert_sale,display_stock,insert_stock,available_stock
 
 # creating a Flask instance
 app = Flask(__name__)
@@ -26,16 +26,39 @@ def add_products():
     insert_product(new_product)
     return redirect(url_for('products'))
     # return redirect(url_for('products'))the url is used to display all products with the new products and the products in the url is the product at the def function
-
+#redirect is used to refresh the page to reflect the new data
 
 @app.route("/sales")
 def sales():
     sales = display_sales()
-    return render_template("sales.html",sales=sales)
+    products=display_products()
+    return render_template("sales.html",sales=sales,products=products)
+
+@app.route("/make_sale",methods=['GET','POST'])
+def make_sale():
+    pid=request.form["pid"]
+    quantity=request.form["quantity"]
+    new_sale=(pid,quantity)
+    check_stock=available_stock(pid)
+    if check_stock < float(quantity):
+        print("Insufficient stock")
+        return redirect(url_for('sales'))
+    insert_sale(new_sale)
+    return redirect(url_for('sales'))
 
 @app.route("/stock")
 def stock():
-    return render_template("stock.html")
+    stock=display_stock()
+    products=display_products()
+    return render_template("stock.html",stock=stock,products=products)
+
+@app.route('/add_stock',methods=['GET','POST'])
+def add_stocks():
+    pid=request.form['pid']
+    stock_quantity=request.form['stock_quantity']
+    new_stock=(pid,stock_quantity)
+    insert_stock(new_stock)
+    return redirect(url_for('stock'))
 
 @app.route("/dashboard")
 def dashboard():

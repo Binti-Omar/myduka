@@ -1,10 +1,38 @@
 {% extends 'base.html' %}
 {% block title %} Home Page {% endblock %}
 {% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<div>
-    <h1>Welcome to the Home Page</h1>
-    <p>This is the content of the home page.</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6">
+        <div class="bg-secondary w-100 p-5 mt-4">
+            <p class="text-info fw-bold fst-italic">Buy Everything You Need Here</p>
+            <h1 class="text-white fw-bolder">ONLINE <br>SHOPPING</h1>
+        </div>
+        <div class="bg-dark p-4 w-100">
+            <p class="text-secondary">Lorem ipsum dolor sit, amet consectetur adipisicing elit.<br> Ullam
+                perferendis
+                cupiditate beatae doloremque
+                delectus dolore <br> hic porro culpa distinctio placeat. Odio voluptates perspiciatis <br> fugit
+                possimus
+                fugiat vitae atque eligendi minus.</p>
+
+            <div>
+                <a href=""> <button type="submit" class="rounded-5 border-0">Order Now</button> </a> <br> <br>
+                <a href=""><i class="fa-brands fa-square-instagram fa-2xl"></i></a>
+                <a href=""><i class="fa-brands fa-twitter fa-2xl"></i></a>
+                <a href=""><i class="fa-brands fa-facebook fa-2xl"></i></a>
+            </div>
+        </div>
+        </div>
+        <div class="col-6 w-25 h-50">
+            <image src="{{url_for('static',filename='images/image5.jpg')}}">
+        </div>
+    </div>
+
 </div>
 
 {% endblock %}

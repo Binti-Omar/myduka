@@ -3,30 +3,56 @@
 
 {% block content %}
 
+<div class="mt-5 p-3 ">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary bg-secondary mt-1 border-black" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Our Products
+    </button>
 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Products</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <form action="/add_products" method="post">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Product Name</label>
+                                    <input type="text" name="product_name" class="form-control" id="exampleInputEmail1"
+                                        aria-describedby="emailHelp">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">Buying Price</label>
+                                    <input type="number" name="buying_price" class="form-control"
+                                        id="exampleInputPassword1">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">Selling Price</label>
+                                    <input type="number" name="selling_price" class="form-control"
+                                        id="exampleInputPassword1">
+                                </div>
 
-
-<div>
-    <form action="/add_products" method="post">
-        <form>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Product Name</label>
-                <input type="text" name="product_name" class="form-control" id="exampleInputEmail1"
-                    aria-describedby="emailHelp">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Add Products</button>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Buying Price</label>
-                <input type="number" name="buying_price" class="form-control" id="exampleInputPassword1">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Selling Price</label>
-                <input type="number" name="selling_price" class="form-control" id="exampleInputPassword1">
-            </div>
-
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-    </form>
+        </div>
+    </div>
 </div>
+
+
+
 
 <div>
     <p>These are our products</p>
